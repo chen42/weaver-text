@@ -16,7 +16,7 @@ Record verification evidence in the existing requirements record when one is mai
 
 ## 2. Reproducible compilation and export
 
-Use `drafts/` for editable sources, `build/` for temporary output, and `final/` for checked deliverables when these folders fit the approved project structure. Check tool availability and versions before building. Obtain approval before installing software or skills. Preserve original sources and write conversion outputs to a separate location.
+Use `drafts/` for editable sources, `build/` for temporary output, and `final/` for checked deliverables when these folders fit the approved project structure. Check tool availability and versions before building. Obtain approval before installing software. Preserve original sources and write conversion outputs to a separate location.
 
 ### Markdown drafts
 
@@ -43,22 +43,22 @@ For an existing LuaLaTeX project:
 latexmk -pdflua -interaction=nonstopmode -file-line-error -outdir=build drafts/main.tex
 ```
 
-For the agent's own edits, keep the pre-edit source and provide a `latexdiff` comparison, compiled to PDF when the build succeeds; otherwise provide a unified diff. Require a successful exit, inspect the log and rendered pages, and confirm the PDF belongs to the current build before copying it to `final/`. Do not release a stale PDF after a failed build. Verify bibliography and image paths under the actual working directory and output-directory configuration.
+For the agent's edits to an existing source, keep a pre-edit copy in `build/` unless Git history already holds it, and write a `latexdiff` comparison to `build/`, compiled to PDF when the build succeeds; otherwise provide a unified diff. Use `latexdiff --flatten` for projects split across several `.tex` files. Require a successful exit, inspect the log and rendered pages, and confirm the PDF belongs to the current build before copying it to `final/`. Do not release a stale PDF after a failed build. Verify bibliography and image paths under the actual working directory and output-directory configuration.
 
 ### Linux DOCX support
 
-The optional [`docx` skill from `anthropics/skills`](https://github.com/anthropics/skills/tree/main/skills/docx) provides creation, editing, tracked-change handling, validation, and rendering workflows using Node.js, Python, and LibreOffice. Its source includes a Linux LibreOffice helper for sandboxed environments. This is an optional dependency, not an assumption that the skill or its packages are installed.
+Creating, editing, tracking changes, validating, and rendering DOCX files on Linux requires local DOCX and LibreOffice tooling. Do not assume these tools or packages are installed.
 
-1. If the `docx` skill is installed, read its `SKILL.md` and relevant linked instructions. Resolve its script paths relative to that skill, not this one. Check current dependencies and license terms before use; claims about preinstalled packages in the external skill do not establish availability locally.
-2. If it is not installed, ask before installation. If installation is unavailable or not approved, use LibreOffice ODT as the working format when the user permits conversion. Preserve the original DOCX. If DOCX must remain the source, use LibreOffice only with the user's approval and audit round-trip fidelity; otherwise report the dependency as Blocked.
-3. For a new DOCX, use the verified skill's generation workflow. For an existing DOCX, use its editing workflow or an approved LibreOffice workflow; do not regenerate the document through a Markdown round trip or a creation-only library.
-4. Record the agent's own edits as tracked changes, using the skill's tracked-change workflow or LibreOffice's Record Changes, so the author can accept or reject each one. Preserve styles, numbering, fields, equations, citations, hyperlinks, headers, footers, section breaks, comments, and tracked changes. Do not accept or reject changes without authorization. Text extraction is an inspection aid, not a lossless editable source.
-5. Validate the DOCX using the available skill tools and render it with LibreOffice. Inspect the PDF page by page. Rendering in LibreOffice does not establish identical pagination in Microsoft Word; report that limitation when relevant to the submission.
+1. Check available DOCX editing, tracked-change, validation, and rendering tools and their license terms before use.
+2. If required tooling is not installed, ask before installation. If installation is unavailable or not approved, use LibreOffice ODT as the working format when the user permits conversion. Preserve the original DOCX. If DOCX must remain the source, use LibreOffice only with the user's approval and audit round-trip fidelity; otherwise report the dependency as Blocked.
+3. For a new DOCX, use a verified generation workflow. For an existing DOCX, use a structure-preserving editing workflow or an approved LibreOffice workflow; do not regenerate the document through a Markdown round trip or a creation-only library.
+4. Record the agent's edits to an existing DOCX as tracked changes so the author can accept or reject each one. If tracked changes cannot be produced, keep the original, save the edited copy under a new name, place a comparison the author can open, such as before-and-after PDF renders or a text diff, in `build/`, and report the limitation rather than treating the edit as tracked. Preserve styles, numbering, fields, equations, citations, hyperlinks, headers, footers, section breaks, comments, and tracked changes. Do not accept or reject changes without authorization. Text extraction is an inspection aid, not a lossless editable source.
+5. Validate the DOCX structure and render it with LibreOffice. Inspect the PDF page by page. Rendering in LibreOffice does not establish identical pagination in Microsoft Word; report that limitation when relevant to the submission.
 6. Deliver the editable DOCX and checked PDF when requested. An ODT or PDF substitute does not satisfy a mandatory DOCX requirement.
 
 ### LibreOffice ODT
 
-Use LibreOffice Writer with ODT as the fallback authoring format when a suitable DOCX workflow is unavailable and the user permits it. Preserve the supplied document and record any conversion. Use paragraph, character, table, and page styles rather than manual spacing to control layout. Record the agent's own edits with Record Changes. Verify the availability of any automation interface before relying on it.
+Use LibreOffice Writer with ODT as the fallback authoring format when a suitable DOCX workflow is unavailable and the user permits it. Preserve the supplied document and record any conversion. Use paragraph, character, table, and page styles rather than manual spacing to control layout. Record the agent's edits to an existing ODT with Record Changes. Headless LibreOffice has no command-line switch for this, so it requires a verified automation interface; otherwise use the fallback in DOCX step 4. Verify the availability of any automation interface before relying on it.
 
 For either DOCX or ODT, this Linux example renders to a fresh output directory with an isolated LibreOffice profile. The commands assume the source file and dependencies exist; save them as a script when reproducible export is in scope:
 
@@ -75,7 +75,7 @@ libreoffice "-env:UserInstallation=$profile_uri" --headless \
 test -s "$render_dir/main.pdf"
 ```
 
-Check both the conversion exit status and the expected output; LibreOffice messages alone do not certify a successful export. An installed LibreOffice binary does not establish rendering availability: sandbox restrictions may block required Unix-domain sockets. If rendering fails, use the installed DOCX skill's verified helper where permitted, or report the block. Do not install or load unreviewed helpers.
+Check both the conversion exit status and the expected output; LibreOffice messages alone do not certify a successful export. An installed LibreOffice binary does not establish rendering availability: sandbox restrictions may block required Unix-domain sockets. If rendering fails, report the block. Do not install or load unreviewed helpers.
 
 Keep the rendered PDF for inspection before copying it to `final/`. Use the original basename or record any intentional renaming. For ODT-to-DOCX export, check the new DOCX separately for layout and structural changes, especially equations, fields, citations, tables, and tracked changes. Retain the editable ODT when it is the working source.
 
@@ -104,7 +104,7 @@ Check the rendered deliverable against the current official instructions and `gu
 
 ### Layout and components
 
-- Count pages, words, and characters as applicable according to the target's definition, including which components and references count toward each limit. Check display-item caps where required. Report the counts and any overage. Do not cut text to reduce the count. Overages are allowed during drafting within the tolerance set for the project; state them in the delivery summary. Before packaging a submission-ready file, propose specific cuts and pruning options for any overage and wait for approval. A file over a mandatory limit is not submission-ready.
+- Count pages, words, and characters as applicable according to the target's definition, including which components and references count toward each limit. Check display-item caps where required. Report the counts and any overage. Do not cut text to reduce the count. Overages are allowed during drafting within the tolerance the author confirmed for the project; when no tolerance has been confirmed, ask the author; state them in the delivery summary. Before packaging a submission-ready file, propose specific cuts and pruning options for any overage and wait for approval. A file over a mandatory limit is not submission-ready.
 - Distinguish separately uploaded attachments from sections in a single file. Apply page breaks only where required by the actual document structure.
 - Verify page size, margins, fonts, line spacing, headers, footers, and file-format requirements without assuming generic agency values.
 - Inspect every rendered page for clipping, overflow, overlapping captions, blank pages, incorrect numbering, and misplaced figures. If visual inspection is unavailable, mark it Not checked or Blocked.

@@ -69,9 +69,9 @@ Follow the current journal or mechanism's citation style and preserve the existi
 
 Never rely on model memory for bibliographic metadata. Hallucinated PMIDs, DOIs, or author lists constitute scientific defects.
 
-### Active literature search and discovery routing
+### Active literature search and discovery
 
-Search when requested or needed to resolve a citation or evidence concern within the active scope. Use a relevant literature skill when available, or consult authoritative databases directly; never generate unverified citations.
+Search when requested or needed to resolve a citation or evidence concern within the active scope. Consult authoritative databases directly; never generate unverified citations.
 
 - **When to initiate a search**:
   - Resolving missing citation tags (`[AUTHOR QUERY: citation needed]`) in narrative sections.
@@ -79,16 +79,6 @@ Search when requested or needed to resolve a citation or evidence concern within
   - Reconciling contradictory experimental observations in the Discussion.
   - Sourcing published peer-reviewed evidence to support author responses during reviewer rebuttals.
   - Verifying whether cited bioRxiv, medRxiv, or arXiv preprints have since appeared in peer-reviewed journals.
-
-- **Routing matrix to specialized literature skills**:
-  - *Complex literature reviews, including narrative, scoping, and systematic reviews or multi-database evidence synthesis*: Delegate to the `honeybee-lit` skill.
-  - *Simple citation lookups and single-claim checks*: Use the `pubmed-database` skill.
-  - *Biomedical literature, abstracts, and MeSH terms*: Delegate to the `pubmed-database` skill.
-  - *Open-access life-sciences full texts and PMCIDs*: Delegate to the `literature-search-europepmc` skill.
-  - *Cross-disciplinary citations, author metrics, and broad scholarly works*: Delegate to the `literature-search-openalex` skill.
-  - *Recent life-sciences preprints*: Delegate to the `literature-search-biorxiv` skill.
-  - *Computational biology, machine learning, and physical science preprints*: Delegate to the `literature-search-arxiv` skill.
-  - *Human clinical trial protocols, endpoints, and registered outcomes*: Delegate to the `clinical-trials-database` skill.
 
 - **Intake and verification protocol**:
   1. Formulate scoped queries using precise biological entities, assay names, or MeSH terms.

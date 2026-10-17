@@ -125,7 +125,7 @@ Keep section functions clear, including when the journal permits combined sectio
 ## 3. Literature synthesis
 
 Applies to Introductions, Discussions, and Grant Significance sections:
-- **Systematic versus narrative synthesis**: Use the `honeybee-lit` skill for complex literature reviews, and follow the applicable PRISMA checklist when a systematic review or meta-analysis is in scope. For narrative literature searches, state the search boundaries and databases consulted, or point to the saved search record. A focused edit does not require a new search or persistent search log.
+- **Systematic versus narrative synthesis**: Follow the applicable PRISMA checklist when a systematic review or meta-analysis is in scope. For narrative literature searches, state the search boundaries and databases consulted, or point to the saved search record. A focused edit does not require a new search or persistent search log.
 - **Primary source attribution**: Cite primary literature for specific empirical findings. Reserve review articles for broad conceptual overviews.
 - **Differentiate consensus from controversy**: Explicitly distinguish established scientific consensus from disputed or conflicting findings.
 - **Retraction and correction audit**: Check available publisher notices and bibliographic records for retractions, corrections, withdrawals, or expressions of concern. Record the source and date checked, and report incomplete checks rather than certifying the absence of notices.

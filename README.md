@@ -4,7 +4,7 @@
 
 AI editing help for scientists who write their own manuscripts and grant proposals. The author supplies the ideas, argument, and data and makes the final decisions on wording. The skill edits, reviews, checks citations, and prepares the submission, at the scope each task needs.
 
-Part of a four-skill research suite: `beaver-data` (analysis), `weaver-text` (editing support for author-written text), `honeybee-lit` (general literature reviews), and `wasp-lit` (post-GWAS candidate gene-phenotype literature analysis).
+Part of a research suite: `weaver-text` (editing support for author-written text), `honeybee-lit` (general literature reviews), and `wasp-lit` (post-GWAS candidate gene-phenotype literature analysis).
 
 ## Why a weaver?
 

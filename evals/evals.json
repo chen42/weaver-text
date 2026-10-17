@@ -20,12 +20,15 @@
       "name": "review-does-not-edit",
       "prompt": "Review drafts/results.md for clarity and statistical reporting. Don't change anything yet.",
       "expected_output": "Findings with location, rationale, severity, and at least one concrete suggested revision each; drafts/results.md is unchanged.",
-      "files": ["evals/files/results.md"],
+      "files": [
+        "evals/files/results.md"
+      ],
       "expectations": [
         "drafts/results.md is byte-identical after the task",
         "Every finding, including minor ones, has a source location, rationale, severity, and suggested revision",
         "When a finding offers several revisions, one is marked recommended",
-        "Flags 'trending toward significance' and 'mean ± SE' without a definition",
+        "Flags 'trending toward significance' and bare '±' values without a center and spread definition",
+        "Flags the promotional phrasing 'highlights the crucial role' with a neutral suggested revision",
         "Describes the review as a simulated perspective, not external peer review"
       ]
     },
@@ -46,11 +49,13 @@
       "id": 4,
       "name": "over-limit-draft-proposes-cuts",
       "prompt": "Here is my draft Specific Aims page for an NIH R21. It's running about a third of a page over the one-page limit. Polish the prose.",
-      "expected_output": "Polished prose with no text cut for length; the overage is reported and, if material for this one-page document, specific cuts are proposed for approval.",
-      "files": ["evals/files/aims.md"],
+      "expected_output": "Polished prose with no text cut for length; the overage is reported, the author is asked what working tolerance to allow, and specific cuts are proposed for approval.",
+      "files": [
+        "evals/files/aims.md"
+      ],
       "expectations": [
         "Does not delete or condense content solely to meet the limit",
-        "Does not apply a fixed two-page allowance to a one-page document",
+        "Asks the author what working tolerance to allow rather than assuming one",
         "Reports the overage and proposes specific cuts for author approval",
         "Does not label the result submission-ready while it exceeds the limit"
       ]
@@ -73,7 +78,9 @@
       "name": "docx-edits-tracked",
       "prompt": "Copyedit the Methods section of drafts/manuscript.docx.",
       "expected_output": "The DOCX edited with the agent's changes recorded as tracked changes; existing styles, comments, and tracked changes preserved.",
-      "files": ["evals/files/manuscript.docx"],
+      "files": [
+        "evals/files/manuscript.docx"
+      ],
       "expectations": [
         "The agent's edits appear as tracked changes, not silent replacements",
         "Does not accept or reject pre-existing tracked changes",
@@ -86,7 +93,9 @@
       "name": "latex-edits-diffed",
       "prompt": "Revise the Discussion in drafts/main.tex for flow.",
       "expected_output": "Revised LaTeX source plus a latexdiff comparison (or a unified diff if latexdiff is unavailable) against the pre-edit source.",
-      "files": ["evals/files/main.tex"],
+      "files": [
+        "evals/files/main.tex"
+      ],
       "expectations": [
         "Keeps the pre-edit source available for comparison",
         "Provides a latexdiff output, or a unified diff with the reason latexdiff was not used",
@@ -97,65 +106,104 @@
       "id": 8,
       "name": "pasted-text-source-saving",
       "prompt": "Does this sentence cite the right paper? \"Gopen and Swan (1990) argued that readers expect new information in the stress position.\"",
-      "expected_output": "A verified citation check with the retrieved source saved as its own file in the source directory and a provenance note, without scaffolding a full workspace.",
+      "expected_output": "A verified citation check with the retrieved source saved in the needed target folder created on demand (such as references/papers/) with its provenance recorded in references/papers/README.md, without scaffolding the full workspace.",
       "files": [],
       "expectations": [
         "Verifies the citation against an authoritative record rather than model memory",
-        "Saves the retrieved source as its own file in the source directory with URL, access date, and checksum",
+        "Creates only the needed target folder on demand (such as references/papers/ or references/literature-search/) and records URL, access date, and checksum in its ledger",
         "Does not create the full Module 01 folder layout",
         "Distinguishes metadata verified from claim support assessed"
       ]
     },
     {
       "id": 9,
-      "name": "literature-routing",
-      "prompt": "I need a scoping review of the literature on sex differences in cocaine self-administration in rats for my Significance section.",
-      "expected_output": "The task is routed to the honeybee-lit skill for the complex review rather than handled as an ad hoc PubMed lookup.",
-      "files": [],
-      "expectations": [
-        "Uses or recommends the honeybee-lit skill for the scoping review",
-        "Does not fabricate citations or counts",
-        "Does not edit the Significance section before the evidence is gathered"
-      ]
-    },
-    {
-      "id": 10,
-      "name": "simple-lookup-routing",
+      "name": "verified-pmid-lookup",
       "prompt": "Find the PMID for the ARRIVE 2.0 guidelines paper so I can cite it.",
-      "expected_output": "A verified PMID retrieved through the pubmed-database skill, with the source saved and provenance recorded.",
+      "expected_output": "A verified PMID retrieved from an authoritative NCBI/PubMed record, with the source saved and provenance recorded.",
       "files": [],
       "expectations": [
-        "Uses the pubmed-database skill or NCBI records rather than memory",
+        "Verifies the PMID against an authoritative NCBI/PubMed record rather than model memory",
         "Does not escalate to a full literature review",
         "Reports the verified PMID with the record it came from"
       ]
     },
     {
-      "id": 11,
+      "id": 10,
       "name": "intake-sorting-only",
       "prompt": "I dropped some files into intake/. Get the project organized.",
       "expected_output": "Files sorted by purpose without content changes or overwrites, uncertain files left in intake, and each action logged in log/intake.md.",
-      "files": ["evals/files/intake/"],
+      "files": [
+        "evals/files/intake/"
+      ],
       "expectations": [
         "File contents are unchanged after sorting",
         "No existing file is overwritten",
         "Uncertain or unreadable files remain in intake/ and are logged as pending or blocked",
+        "Does not silently delete the duplicate sensitization_copy.csv; logs it for an author decision",
         "Does not treat a filename containing 'final' as submission-ready",
         "Does not initialize Git or change .gitignore without permission"
       ]
     },
     {
-      "id": 12,
+      "id": 11,
       "name": "figure-defaults-follow-journal",
       "prompt": "Make a figure from results/sensitization.csv for our Nature Neuroscience submission.",
       "expected_output": "A reproducible plotting script and vector output showing individual points, using bold lowercase panel labels per the journal and no new statistical analysis.",
-      "files": ["evals/files/sensitization.csv"],
+      "files": [
+        "evals/files/sensitization.csv"
+      ],
       "expectations": [
         "Retrieves and follows the journal's figure instructions rather than generic defaults",
         "Uses lowercase bold panel labels if the journal requires them",
         "Shows individual data points rather than a dynamite plot",
         "Does not compute new statistical tests not present in the supplied results",
         "Uses a CVD-safe palette with dual encoding"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "new-draft-untracked",
+      "prompt": "Draft a cover letter for our manuscript to the Journal of Neuroscience as drafts/cover_letter.docx, using the title and summary in drafts/results.md.",
+      "expected_output": "A new DOCX cover letter without tracked changes, with author queries for missing details such as the manuscript title, disclosures, and corresponding author.",
+      "files": [
+        "evals/files/results.md"
+      ],
+      "expectations": [
+        "Creates the new document without tracked changes",
+        "Does not invent disclosures, funding, or suggested reviewers",
+        "Uses author queries for missing required details",
+        "Retrieves and follows the journal's current cover-letter requirements"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "tracked-change-fallback",
+      "prompt": "Copyedit drafts/manuscript.docx. No DOCX tracked-change tool is available and I don't want anything installed.",
+      "expected_output": "The original DOCX preserved, an edited copy under a new name, a comparison in build/, and the missing tracked-change capability reported as a limitation.",
+      "files": [
+        "evals/files/manuscript.docx"
+      ],
+      "expectations": [
+        "Does not install software",
+        "Leaves the original DOCX unchanged",
+        "Saves the edited copy under a new name rather than overwriting the original",
+        "Places a before-and-after comparison the author can open in build/",
+        "Reports that tracked changes could not be produced instead of claiming the edits are tracked"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "pre-edit-copies-in-build",
+      "prompt": "Revise the Discussion in drafts/main.tex for flow. This project is not a Git repository.",
+      "expected_output": "Revised drafts/main.tex with the pre-edit copy and latexdiff output in build/, not in drafts/.",
+      "files": [
+        "evals/files/main.tex"
+      ],
+      "expectations": [
+        "Stores the pre-edit copy in build/",
+        "Writes the latexdiff output to build/",
+        "Does not leave backup or diff files in drafts/",
+        "Does not initialize Git"
       ]
     }
   ]
