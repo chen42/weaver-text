@@ -41,7 +41,7 @@ Report the following parameters where applicable to the design and requested sco
 
 Present statistical results with enough information to evaluate effect magnitude, uncertainty, and the analysis performed. Do not rely on isolated p-values. Apply reporting appropriate to the actual design, test, or model; not every analysis has a test statistic, degrees of freedom, group comparison, or frequentist confidence interval.
 
-This skill audits and presents supplied statistical results. Query missing estimates, intervals, test parameters, or power calculations. Do not compute them, reconstruct an analysis, or change its method without an authorized data-analysis task.
+This skill audits and presents supplied statistical results. Query missing estimates, intervals, test parameters, or power calculations. Do not compute them, reconstruct an analysis, or change its method. When a reanalysis is needed, recommend that the author perform it.
 
 When a required value is missing, write an author query that names the quantity needed, the comparison or model it belongs to, and the reporting format the target requires. Phrase it as a task that whoever holds the data or runs the analysis can execute, so the value can be returned and inserted. Do not perform the analysis, generate the number, or prescribe a particular script, package, or tool.
 

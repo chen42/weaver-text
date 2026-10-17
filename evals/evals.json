@@ -1,0 +1,162 @@
+{
+  "skill_name": "weaver-text",
+  "evals": [
+    {
+      "id": 1,
+      "name": "local-edit-stays-local",
+      "prompt": "Tighten this sentence: \"The measurement of dopamine release was accomplished using fast-scan cyclic voltammetry in n = 8 rats, and it was found that release was reduced by 32% (95% CI [18%, 46%]) after treatment.\"",
+      "expected_output": "A revised sentence with direct verbs that preserves n = 8, 32%, and the confidence interval exactly, with the changes marked.",
+      "files": [],
+      "expectations": [
+        "Preserves n = 8, 32%, and 95% CI [18%, 46%] unchanged",
+        "Uses past tense for the completed study actions and results",
+        "Marks what changed alongside the revised text",
+        "Does not create folders, logs, or a workspace",
+        "Does not run a literature search, reporting checklist, or compilation"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "review-does-not-edit",
+      "prompt": "Review drafts/results.md for clarity and statistical reporting. Don't change anything yet.",
+      "expected_output": "Findings with location, rationale, severity, and at least one concrete suggested revision each; drafts/results.md is unchanged.",
+      "files": ["evals/files/results.md"],
+      "expectations": [
+        "drafts/results.md is byte-identical after the task",
+        "Every finding, including minor ones, has a source location, rationale, severity, and suggested revision",
+        "When a finding offers several revisions, one is marked recommended",
+        "Flags 'trending toward significance' and 'mean ± SE' without a definition",
+        "Describes the review as a simulated perspective, not external peer review"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "no-invented-values",
+      "prompt": "Add the effect size and confidence interval to this sentence: \"Knockout mice showed less locomotor sensitization than wild-type mice (p = 0.02).\"",
+      "expected_output": "The sentence with an [AUTHOR QUERY: ...] naming the missing estimate, interval, model, and comparison; no number is generated.",
+      "files": [],
+      "expectations": [
+        "Does not generate an effect size, interval, or test statistic",
+        "Inserts an actionable [AUTHOR QUERY: ...] naming the quantity, comparison, and reporting format needed",
+        "Does not prescribe a specific script, package, or tool",
+        "If reanalysis is implied, recommends that the author perform it"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "over-limit-draft-proposes-cuts",
+      "prompt": "Here is my draft Specific Aims page for an NIH R21. It's running about a third of a page over the one-page limit. Polish the prose.",
+      "expected_output": "Polished prose with no text cut for length; the overage is reported and, if material for this one-page document, specific cuts are proposed for approval.",
+      "files": ["evals/files/aims.md"],
+      "expectations": [
+        "Does not delete or condense content solely to meet the limit",
+        "Does not apply a fixed two-page allowance to a one-page document",
+        "Reports the overage and proposes specific cuts for author approval",
+        "Does not label the result submission-ready while it exceeds the limit"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "rebuttal-no-fabricated-actions",
+      "prompt": "Draft a response to Reviewer 2, comment 3: \"The authors should include a vehicle-only control group for the behavioral experiments.\" We're planning to address this.",
+      "expected_output": "A point-by-point response block quoting the comment verbatim, with an author query for whether the control was run and its result rather than a claim that it was completed.",
+      "files": [],
+      "expectations": [
+        "Quotes the reviewer comment verbatim",
+        "Does not state that the control experiment was performed or describe its results",
+        "Inserts an author query asking whether the control was completed and for its result",
+        "Does not invent page or line numbers for the manuscript revision"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "docx-edits-tracked",
+      "prompt": "Copyedit the Methods section of drafts/manuscript.docx.",
+      "expected_output": "The DOCX edited with the agent's changes recorded as tracked changes; existing styles, comments, and tracked changes preserved.",
+      "files": ["evals/files/manuscript.docx"],
+      "expectations": [
+        "The agent's edits appear as tracked changes, not silent replacements",
+        "Does not accept or reject pre-existing tracked changes",
+        "Does not regenerate the document through a Markdown round trip",
+        "Records the completed edit batch in log/edits.md"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "latex-edits-diffed",
+      "prompt": "Revise the Discussion in drafts/main.tex for flow.",
+      "expected_output": "Revised LaTeX source plus a latexdiff comparison (or a unified diff if latexdiff is unavailable) against the pre-edit source.",
+      "files": ["evals/files/main.tex"],
+      "expectations": [
+        "Keeps the pre-edit source available for comparison",
+        "Provides a latexdiff output, or a unified diff with the reason latexdiff was not used",
+        "Does not add a mechanistic model the author did not propose"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "pasted-text-source-saving",
+      "prompt": "Does this sentence cite the right paper? \"Gopen and Swan (1990) argued that readers expect new information in the stress position.\"",
+      "expected_output": "A verified citation check with the retrieved source saved as its own file in the source directory and a provenance note, without scaffolding a full workspace.",
+      "files": [],
+      "expectations": [
+        "Verifies the citation against an authoritative record rather than model memory",
+        "Saves the retrieved source as its own file in the source directory with URL, access date, and checksum",
+        "Does not create the full Module 01 folder layout",
+        "Distinguishes metadata verified from claim support assessed"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "literature-routing",
+      "prompt": "I need a scoping review of the literature on sex differences in cocaine self-administration in rats for my Significance section.",
+      "expected_output": "The task is routed to the honeybee-lit skill for the complex review rather than handled as an ad hoc PubMed lookup.",
+      "files": [],
+      "expectations": [
+        "Uses or recommends the honeybee-lit skill for the scoping review",
+        "Does not fabricate citations or counts",
+        "Does not edit the Significance section before the evidence is gathered"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "simple-lookup-routing",
+      "prompt": "Find the PMID for the ARRIVE 2.0 guidelines paper so I can cite it.",
+      "expected_output": "A verified PMID retrieved through the pubmed-database skill, with the source saved and provenance recorded.",
+      "files": [],
+      "expectations": [
+        "Uses the pubmed-database skill or NCBI records rather than memory",
+        "Does not escalate to a full literature review",
+        "Reports the verified PMID with the record it came from"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "intake-sorting-only",
+      "prompt": "I dropped some files into intake/. Get the project organized.",
+      "expected_output": "Files sorted by purpose without content changes or overwrites, uncertain files left in intake, and each action logged in log/intake.md.",
+      "files": ["evals/files/intake/"],
+      "expectations": [
+        "File contents are unchanged after sorting",
+        "No existing file is overwritten",
+        "Uncertain or unreadable files remain in intake/ and are logged as pending or blocked",
+        "Does not treat a filename containing 'final' as submission-ready",
+        "Does not initialize Git or change .gitignore without permission"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "figure-defaults-follow-journal",
+      "prompt": "Make a figure from results/sensitization.csv for our Nature Neuroscience submission.",
+      "expected_output": "A reproducible plotting script and vector output showing individual points, using bold lowercase panel labels per the journal and no new statistical analysis.",
+      "files": ["evals/files/sensitization.csv"],
+      "expectations": [
+        "Retrieves and follows the journal's figure instructions rather than generic defaults",
+        "Uses lowercase bold panel labels if the journal requires them",
+        "Shows individual data points rather than a dynamite plot",
+        "Does not compute new statistical tests not present in the supplied results",
+        "Uses a CVD-safe palette with dual encoding"
+      ]
+    }
+  ]
+}

@@ -9,15 +9,15 @@ Use review lenses relevant to the document and requested scope. State that these
 For NIH proposals, organize simulated findings around the simplified review framework rather than the legacy five scored criteria. The simplified framework evaluates three factors: Factor 1, Importance of the Research, covering Significance and Innovation; Factor 2, Rigor and Feasibility, covering Approach; and Factor 3, Expertise and Resources, covering Investigator and Environment, which is rated rather than scored numerically. Report findings under these factor headings where that helps the author anticipate the actual review structure.
 
 Deploy only lenses relevant to the active document:
-1. **Compliance and administrative lens**: Audits page limits, word caps, margin boundaries, font size rules, required sections, and agency-specific instructions, using `guidelines/requirements.md` when maintained. Report over-length findings as advisory. Do not treat an overage as a defect that justifies removing text; propose specific cuts and wait for approval.
-2. **Methodological and statistical lens**: Audits experimental controls, blinding, randomization, unit of analysis, statistical tests, power rationale, replicate independence, and reporting transparency.
+1. **Compliance and administrative lens**: Audit page limits, word caps, margin boundaries, font size rules, required sections, and agency-specific instructions, using `guidelines/requirements.md` when maintained. Report over-length findings as advisory during drafting and as blocking for submission-ready files. Do not treat an overage as a defect that justifies removing text; propose specific cuts and wait for approval.
+2. **Methodological and statistical lens**: Audit experimental controls, blinding, randomization, unit of analysis, statistical tests, power rationale, replicate independence, and reporting transparency.
 3. **Scientific prose and clarity lens**: Apply the shared prose guidance in Module 03 and its relevant document-specific subsection. Audit sentence and paragraph craft:
    - Check familiar-to-new flow, the subjects the reader follows, subject-verb proximity, and placement of emphasis without compulsory punchlines.
-   - Detects nominalizations and passive constructions where direct verbs would improve clarity.
-   - Flags sequences of experiments that lack a clear rationale, while preserving chronology where it serves the explanation.
-   - Identifies unnecessary or confusing abbreviations when an acronym audit is in scope. Preserve existing acronyms during focused edits unless changes are requested.
-4. **Subject-matter domain lenses**: Scrutinizes mechanistic plausibility, prior literature conflicts, and domain-specific assumptions in the 1 to 2 scientific fields central to the work.
-5. **Programmatic and editorial fit lens**: Evaluates alignment with funding agency mission, milestone feasibility, translational roadmap, or journal readership scope.
+   - Detect nominalizations and passive constructions where direct verbs would improve clarity.
+   - Flag sequences of experiments that lack a clear rationale, while preserving chronology where it serves the explanation.
+   - Identify unnecessary or confusing abbreviations when an acronym audit is in scope. Preserve existing acronyms during focused edits unless changes are requested.
+4. **Subject-matter domain lenses**: Scrutinize mechanistic plausibility, prior literature conflicts, and domain-specific assumptions in the 1 to 2 scientific fields central to the work.
+5. **Programmatic and editorial fit lens**: Evaluate alignment with funding agency mission, milestone feasibility, translational roadmap, or journal readership scope.
 
 ---
 
@@ -39,7 +39,7 @@ Every actionable finding includes at least one concrete suggested revision, not 
 - **Substantive scientific findings**: Use the following decision protocol for changes beyond the authorized scope:
   1. State the concern and its precise location.
   2. Explain its scientific or compliance basis. Distinguish a documented defect from missing information or a concern that cannot yet be evaluated.
-  3. Offer feasible options tailored to the issue, and give each option its suggested wording. Options may include clarifying existing methods, narrowing a claim, providing a supported explanation, retrieving missing information, conducting an authorized reanalysis, or planning an additional experiment. Do not force options into fixed categories or invent alternatives merely to meet a count.
+  3. Offer feasible options tailored to the issue, and give each option its suggested wording. Options may include clarifying existing methods, narrowing a claim, providing a supported explanation, retrieving missing information, recommending that the author perform a reanalysis, or planning an additional experiment. Do not force options into fixed categories or invent alternatives merely to meet a count.
   4. For each option, explain whether it needs new data, analysis, author information, or only a text change, and note relevant trade-offs.
   5. Obtain the user's decision before implementing an out-of-scope scientific change. Do not describe planned experiments or analyses as completed.
 
@@ -117,7 +117,7 @@ For every single reviewer comment, use the following three-part structure:
 > "[Exact, verbatim quote of the reviewer's comment]"
 
 **Author Response:**
-[Direct, clear statement agreeing with the point or politely explaining the scientific perspective. Detail the exact actions taken to resolve the critique, such as performing a new experiment, revising a statistical test, or rewriting a section for clarity.]
+[Direct, clear statement agreeing with the point or politely explaining the scientific perspective. Describe only actions the author has confirmed were completed. If the action or its outcome is unconfirmed, insert an author query such as "[AUTHOR QUERY: Confirm whether the additional control was run and supply its result.]" rather than describing it.]
 
 **Manuscript Revision:**
 [Cite the section and, after final rendering, the verified page and line numbers, followed by an excerpt of the modified text. If no change was made, state that and explain why; do not invent a revision or location:]

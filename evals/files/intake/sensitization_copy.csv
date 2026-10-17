@@ -1,0 +1,9 @@
+animal_id,genotype,sex,day,beam_breaks
+1,WT,M,1,310
+2,WT,F,1,295
+3,KO,M,1,250
+4,KO,F,1,262
+1,WT,M,7,520
+2,WT,F,7,498
+3,KO,M,7,330
+4,KO,F,7,341

@@ -26,9 +26,9 @@ Grant page limits usually make journal-length captions impractical. Keep proposa
 - **Self-contained visual chapters**: Design multi-panel figures as self-contained narrative chapters where sub-panels flow in logical reading order (Panels A to B to C) and converge on the central question.
 - **High data efficiency**: Maximize the proportion of ink dedicated to actual data. Eliminate non-data ink: remove heavy background grids, decorative borders, faux three-dimensional bar volumes, and drop shadows.
 - **Small multiples for complex comparisons**: When comparing multiple treatment groups, genotypes, or time points, arrange small, identically scaled sub-panels in a grid rather than overcrowding a single plot with dozens of overlapping traces. This enables immediate visual comparison without cognitive fatigue.
-- **Show distributions**: Avoid bar charts (dynamite plungers) for small or continuous sample distributions because they hide data spread, bimodal patterns, and outliers. Prefer dot plots with individual data points, box-and-whisker plots with overlaid points, violin plots, or estimation plots showing effect sizes and confidence intervals.
+- **Show distributions**: Avoid bar charts with error bars (dynamite plots) for small or continuous sample distributions because they hide data spread, bimodal patterns, and outliers. Prefer dot plots with individual data points, box-and-whisker plots with overlaid points, violin plots, or estimation plots showing effect sizes and confidence intervals.
 - **Axis integrity**: Do not use axis limits to exaggerate differences. Bar charts representing counts or amounts should start at zero. Other displays may use clearly labeled restricted ranges when appropriate. Use logarithmic axes for fold-change or ratio data when they aid interpretation; label the scale and ticks explicitly.
-- **Multi-panel hierarchy**: Group sub-panels logically. Use bold capital letters (A, B, C) in a clean, consistent sans-serif font (for example, Arial or Helvetica). Ensure all panels are cited sequentially in the text.
+- **Multi-panel hierarchy**: Group sub-panels logically and cite all panels sequentially in the text. Follow the target's panel-label style; for example, some journals require bold capitals (A, B, C) and Nature-family journals require bold lowercase (a, b, c). Without a stated requirement, default to consistent bold capitals in a sans-serif font such as Arial or Helvetica.
 - **Microscopy and imaging**: Include calibrated scale bars directly on images, state scale bar lengths in the legend, identify staining targets or fluorophores clearly, and ensure that contrast adjustments are linear across the entire image and applied identically to control and treatment groups.
 
 ---
@@ -56,7 +56,7 @@ Generate data plots through reproducible code where feasible. For microscopy, su
 - **Reproduction entry point**: Provide a script or documented workflow for each generated plot, including inputs, dependencies, parameters, and outputs. Shared functions and project pipelines are acceptable; each figure need not duplicate all code in a standalone script. Use `figures/` for code and display assets and `results/` for supplied findings and plotting inputs when they fit the approved project structure. Generating a display from supplied results does not authorize a new statistical analysis.
 - **Non-code assets**: Record the source file, creator or provider, software and version, editable assembly file where available, processing steps, and any use restrictions. Keep original imaging inputs unchanged.
 - **Vector formats preferred**: Export plots, charts, and diagrams as vector PDF or SVG for publication. Use raster formats (PNG or TIFF) only for photography, microscopy, or complex heatmaps.
-- **Resolution standards**: For raster output, render at minimum 300 DPI for photographs, 600 DPI for combination image-and-line art, and 1200 DPI for pure line art.
+- **Resolution defaults**: Follow the target's stated resolution and file-format requirements. Without them, render raster output at minimum 300 DPI for photographs, 600 DPI for combination image-and-line art, and 1200 DPI for pure line art.
 - **Accessible, CVD-safe palettes**: Palettes must remain interpretable by individuals with color-vision deficiencies (protanopia, deuteranopia, tritanopia) and when printed in monochrome grayscale:
   - Choose a palette suited to the data, such as Okabe-Ito for categories or viridis/cividis for sequential values. Check the actual display in relevant color-vision simulations and grayscale; a named palette or agency color scheme alone does not establish accessibility.
   - Dual encoding: Combine color with distinct point shapes, line styles (solid, dashed, dotted), or hatch patterns so that color is never the sole differentiator.
@@ -81,6 +81,8 @@ Search when requested or needed to resolve a citation or evidence concern within
   - Verifying whether cited bioRxiv, medRxiv, or arXiv preprints have since appeared in peer-reviewed journals.
 
 - **Routing matrix to specialized literature skills**:
+  - *Complex literature reviews, including narrative, scoping, and systematic reviews or multi-database evidence synthesis*: Delegate to the `honeybee-lit` skill.
+  - *Simple citation lookups and single-claim checks*: Use the `pubmed-database` skill.
   - *Biomedical literature, abstracts, and MeSH terms*: Delegate to the `pubmed-database` skill.
   - *Open-access life-sciences full texts and PMCIDs*: Delegate to the `literature-search-europepmc` skill.
   - *Cross-disciplinary citations, author metrics, and broad scholarly works*: Delegate to the `literature-search-openalex` skill.

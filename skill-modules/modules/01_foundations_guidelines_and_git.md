@@ -13,6 +13,7 @@ project_root/
 │   └── requirements.md     # Traceable compliance matrix, when needed
 ├── references/
 │   ├── papers/             # Articles and full texts
+│   │   └── README.md       # Saved full-text inventory and provenance
 │   ├── literature-search/  # Literature search records and retained abstracts
 │   ├── notes/              # User notes, extracts, and other short records
 │   ├── references.bib      # Verified BibTeX records, when applicable

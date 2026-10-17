@@ -1,10 +1,10 @@
 ---
 name: weaver-text
-description: Draft, revise, review, and package scientific manuscripts and grant proposals. Use for focused scientific editing, simulated peer review, citation checking, submission-guideline compliance, reproducible figures, or publication workflows using LaTeX, DOCX, or LibreOffice ODT, with Markdown accepted for first drafts.
+description: Draft, revise, review, and package scientific manuscripts and grant proposals. Use for focused scientific editing, Specific Aims and other grant sections, simulated peer review, responses to reviewers and resubmissions, cover letters, citation checking, submission-guideline compliance, reproducible figures, or publication workflows using LaTeX, DOCX, or LibreOffice ODT, with Markdown accepted for first drafts.
 metadata:
-  version: "16"
+  version: "17"
   created: "2026-09-27"
-  updated: "2026-10-06"
+  updated: "2026-10-17"
 ---
 
 # Weaver text
@@ -23,12 +23,13 @@ Infer scope and ask only when ambiguous. For scientific drafting and prose revis
 
 - Preserve claims, evidence, names, numbers, dates, citations, and technical meaning except where a change is requested or approved. Never invent missing facts, methods, results, references, or submission requirements. Use visible, actionable `[AUTHOR QUERY: ...]` markers.
 - Write clear, direct, neutral scientific prose. Keep paragraphs focused and preserve established acronyms. Use past tense for completed study actions and results, and present tense for established facts and broader interpretations. Avoid promotional language and rhetorical em dashes or en dashes; preserve scientific notation and protected source content.
-- Match causal and mechanistic claims to the design and evidence. Present supplied statistics accurately, with analysis-appropriate estimates, uncertainty, and sample sizes. Query missing analyses or values rather than calculating them or prescribing specific scripts or tools.
+- Match causal and mechanistic claims to the design and evidence. Present supplied statistics accurately, with analysis-appropriate estimates, uncertainty, and sample sizes. Query missing analyses or values rather than calculating them or prescribing specific scripts or tools. When a reanalysis is needed, recommend that the author perform it.
 - Follow current official agency or journal instructions and templates; general conventions are defaults. Do not infer requirements from common practice.
 - Editing requests authorize in-scope changes. Ask before substantive changes beyond that scope, wholesale source replacement, format conversion, or project reorganization. Preserve the existing document format and bibliography system unless a change is approved.
 - Every review issue, including minor findings, needs a source location, rationale, severity, and concrete suggested revision beneath it. Alternatives are allowed; mark one recommended. Do not apply suggestions without authorization. Describe model-generated reviews as simulated perspectives, not external peer review.
-- Never cut or condense text solely to meet length limits without approval. Working drafts may exceed a page limit by two pages; above that, propose specific cuts and wait for approval. For word or character limits, propose reductions when materially over rather than making them.
-- Save retrieved external sources locally with provenance in every scope, including reviews, following Module 08. Authorized personal retrieval is distinct from redistribution; redistribution restrictions alone do not justify refusing retrieval. Record genuine access or storage limitations.
+- Drafts may exceed page, word, or character limits during the drafting stage. Set the working tolerance for the specific project and document, scaled to the limit, and record it in `log/decisions.md` when a workspace exists. Never cut or condense text solely to meet a limit without approval; when a draft is materially over, propose specific cuts and wait for approval. Submission-ready files must meet every limit.
+- Save retrieved external sources locally with provenance in every scope, including reviews, following Module 08. Authorized personal retrieval is distinct from redistribution; redistribution restrictions alone do not justify refusing retrieval. Record genuine access or storage limitations. When no document workspace exists, as with pasted text, save each retrieved source as its own file in the source directory with a provenance note rather than scaffolding a workspace.
+- Track the agent's own changes to files: use tracked changes in DOCX and ODT, and provide a `latexdiff` output for LaTeX or a unified diff for Markdown and other plain-text sources. For pasted text, mark the changes alongside the revised text. Do not accept the agent's tracked changes on the author's behalf.
 - Obtain permission before installing software or skills or changing Git state, including initialization, staging, commits, tags, or `.gitignore`. Read-only Git inspection is allowed; check the repository root before modifying it and exclude unrelated files.
 
 ## Workspace handling
@@ -39,18 +40,18 @@ When working in a document workspace, inspect files in `intake/` and sort them w
 
 ## References by task
 
-Load only the references needed for the active task, combining them when necessary. The module numbers identify files, not a mandatory workflow. Resolve links and template paths relative to this skill directory.
+Load only the references needed for the active task, combining them when necessary. The module numbers identify files, not a mandatory workflow. Resolve links and template paths relative to this skill directory. Use the `honeybee-lit` skill for complex literature reviews; simple citation lookups can use the `pubmed-database` skill.
 
 | Task or need | Reference |
 |---|---|
-| Workspace setup, intake placement, submission instructions, or Git handling | [01: Workspace and guidelines](skill-modules/references/01_foundations_guidelines_and_git.md) |
-| Study design, statistical reporting, rigor, or supplied-result provenance | [02: Reporting and rigor](skill-modules/references/02_reporting_standards_rigor_and_provenance.md) |
-| All scientific drafting and prose revision, including small edits | [03: Scientific prose](skill-modules/references/03_document_modes_and_prose_craft.md) |
-| Drafting sections, organizing an argument, or synthesizing literature | [04: Section architecture](skill-modules/references/04_section_architecture_and_synthesis.md) |
-| Literature discovery, citation verification, figures, or tables | [05: Figures and citations](skill-modules/references/05_figures_tables_and_citations.md) |
-| Scientific review, revision options, or reviewer responses | [06: Review and rebuttals](skill-modules/references/06_simulated_review_and_rebuttals.md) |
-| Compilation, format conversion, submission preflight, or packaging | [07: Export and delivery](skill-modules/references/07_compilation_preflight_and_packaging.md) |
-| Retrieving or downloading any external source, including during reviews | [08: Source capture](skill-modules/references/08_source_capture_and_provenance.md) |
+| Workspace setup, intake placement, submission instructions, or Git handling | [01: Workspace and guidelines](skill-modules/modules/01_foundations_guidelines_and_git.md) |
+| Study design, statistical reporting, rigor, or supplied-result provenance | [02: Reporting and rigor](skill-modules/modules/02_reporting_standards_rigor_and_provenance.md) |
+| All scientific drafting and prose revision, including small edits | [03: Scientific prose](skill-modules/modules/03_document_modes_and_prose_craft.md) |
+| Drafting sections, organizing an argument, or synthesizing literature | [04: Section architecture](skill-modules/modules/04_section_architecture_and_synthesis.md) |
+| Literature discovery, citation verification, figures, or tables | [05: Figures and citations](skill-modules/modules/05_figures_tables_and_citations.md) |
+| Scientific review, revision options, or reviewer responses | [06: Review and rebuttals](skill-modules/modules/06_simulated_review_and_rebuttals.md) |
+| Compilation, format conversion, submission preflight, or packaging | [07: Export and delivery](skill-modules/modules/07_compilation_preflight_and_packaging.md) |
+| Retrieving or downloading any external source, including during reviews | [08: Source capture](skill-modules/modules/08_source_capture_and_provenance.md) |
 
 ## Handoff
 

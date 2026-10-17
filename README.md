@@ -41,6 +41,7 @@ A weaver bird builds its nest strand by strand, and a poorly built nest is inspe
 - Review suggestions are applied only with the author's approval.
 - Text is never cut solely to meet a length limit; cuts are proposed for the author to choose.
 - Software installation and Git changes require permission.
+- Changes the skill makes to files are tracked (DOCX/ODT tracked changes, `latexdiff` for LaTeX, diffs for plain text) so the author can accept or reject each one.
 
 ## Package contents
 
@@ -50,14 +51,15 @@ weaver-text/
 ├── README.md
 ├── LICENSE
 ├── assets/weaver-text.jpg
+├── evals/                      # Behavior checks for scope, approvals, and provenance
 └── skill-modules/
-    ├── references/             # Modules 01 to 08 and the writing-sources register
+    ├── modules/                # Modules 01 to 08 and the writing-sources register
     └── templates/              # Guidelines README, requirements matrix, results manifest, search record
 ```
 
 ## Project workspace
 
-Create only the folders a task needs, and keep any existing layout ([Module 01](skill-modules/references/01_foundations_guidelines_and_git.md)).
+Create only the folders a task needs, and keep any existing layout ([Module 01](skill-modules/modules/01_foundations_guidelines_and_git.md)).
 
 | Purpose | Folders |
 |---|---|
@@ -68,13 +70,12 @@ Create only the folders a task needs, and keep any existing layout ([Module 01](
 | Deliver | `final/` |
 | Record | `log/` |
 
-Files in `intake/` are sorted without changing contents. `results/` holds supplied findings, not an analysis pipeline; use `beaver-data` for analysis.
+Files in `intake/` are sorted without changing contents. `results/` holds supplied findings, not an analysis pipeline. When a reanalysis is needed, the skill recommends that the author perform it.
 
 ## Companion skills
 
 | Skill | Role |
 |---|---|
-| [`beaver-data`](https://github.com/chen42/beaver-data) | Approved statistical analysis, including quantitative evidence synthesis. |
 | [`weaver-text`](https://github.com/chen42/weaver-text) | AI editing, review, and submission help for author-written manuscripts and grant proposals. |
 | [`honeybee-lit`](https://github.com/chen42/honeybee-lit) | General literature reviews, from citation checks to narrative, scoping, and systematic reviews. |
 | [`wasp-lit`](https://github.com/chen42/wasp-lit) | Post-GWAS literature analysis of candidate gene-phenotype relationships. |

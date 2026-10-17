@@ -30,7 +30,7 @@ Use the mechanism's required title, structure, and length. A Specific Aims page 
 - **Communicative function**: Explains why the problem matters and evaluates the evidence supporting the proposal.
 - **Tense**: Present tense for established scientific facts; past tense for prior historical attempts and previous studies.
 - **Structure**:
-  - Problem framing: Quantify health, defense, or societal burden.
+  - Problem framing: State the health, defense, or societal burden using figures from cited sources or supplied data. Use an author query when no supporting figure is available; do not estimate one.
   - Critical review of existing approaches: Describe documented limitations, such as dose-limiting off-target toxicity or insufficient biodistribution, without assuming that all previous strategies failed.
   - Mechanistic rationale: Connect the proposed target to the underlying biological pathway. Avoid vague significance claims.
 
@@ -84,7 +84,7 @@ Keep section functions clear, including when the journal permits combined sectio
 - **Structure (The Inverted Pyramid)**:
   1. Broad context: The general biological phenomenon and its importance.
   2. Specific unknown: The critical gap in knowledge or unresolved controversy.
-  3. Limitations of prior methodologies: Why previous studies could not resolve this question.
+  3. Limitations of prior work: What existing studies establish and which documented limitations leave the question open, without assuming that they failed.
   4. Study statement: A concise 2 to 3 sentence closing that defines the specific question addressed and outlines the principal finding. Avoid "here we show" unless supported by the target journal style.
 
 ### Results
@@ -105,7 +105,7 @@ Keep section functions clear, including when the journal permits combined sectio
 - **Structure**:
   1. Core finding restatement: Summarize the principal discovery in 1 to 2 sentences without repeating the Results text.
   2. Reconciliation with literature: Compare findings with prior studies. Detail whether differences stem from species, doses, timing, or assays.
-  3. Proposed mechanistic model: Present a plausible biological model synthesized from the data.
+  3. Mechanistic interpretation: When the author proposes a model, present it as an interpretation bounded by the reported data and cited evidence. Do not generate a model the author has not proposed; use an author query to ask whether one is intended.
   4. Transparent limitations: Mandatory discussion of design limits, unmeasured confounders, generalizability, and technical caveats.
   5. Concluding principle: Close on the most defensible, concrete conclusion.
 
@@ -125,7 +125,7 @@ Keep section functions clear, including when the journal permits combined sectio
 ## 3. Literature synthesis
 
 Applies to Introductions, Discussions, and Grant Significance sections:
-- **Systematic versus narrative synthesis**: Follow the applicable PRISMA checklist when a systematic review or meta-analysis is in scope. For narrative literature searches, state the search boundaries and databases consulted, or point to the saved search record. A focused edit does not require a new search or persistent search log.
+- **Systematic versus narrative synthesis**: Use the `honeybee-lit` skill for complex literature reviews, and follow the applicable PRISMA checklist when a systematic review or meta-analysis is in scope. For narrative literature searches, state the search boundaries and databases consulted, or point to the saved search record. A focused edit does not require a new search or persistent search log.
 - **Primary source attribution**: Cite primary literature for specific empirical findings. Reserve review articles for broad conceptual overviews.
 - **Differentiate consensus from controversy**: Explicitly distinguish established scientific consensus from disputed or conflicting findings.
 - **Retraction and correction audit**: Check available publisher notices and bibliographic records for retractions, corrections, withdrawals, or expressions of concern. Record the source and date checked, and report incomplete checks rather than certifying the absence of notices.

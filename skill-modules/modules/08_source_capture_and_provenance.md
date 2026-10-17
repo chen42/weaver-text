@@ -36,14 +36,14 @@ Keep `references/references.bib` or the existing reference manager as the canoni
 ## 3. Choose the capture format
 
 - Official PDF: keep the original file unchanged.
-- HTML page you cite: save a rendered PDF snapshot and a plain-text extraction. The text is what you quote, and the HTML alone depends on external assets.
+- HTML page you cite: save a rendered PDF snapshot and a plain-text extraction. The text is what you quote, and the HTML alone depends on external assets. Render the snapshot with a headless Chromium-family browser using `--print-to-pdf` as the first option, for example `chromium --headless --print-to-pdf=guidelines/source/NAME.pdf URL`. If no such browser is available, save the HTML and convert it with `pandoc` as the second option, for example `pandoc saved.html -t plain -o NAME.txt`, and record that the snapshot was not browser-rendered. If neither tool is available, record the URL, access date, and the limitation.
 - Dynamic or login-gated page: save the rendered PDF or text you can legitimately access, and note that it may not reproduce.
 - Registry or dataset record: save the record export (JSON, TSV, or PDF) and the identifiers.
 - Reference article: save the full-text PDF when you have access; otherwise record the DOI, PMID, and URL. Abstracts retained from a search follow section 2.
 
 ## 4. Name and store
 
-Follow the workspace layout in Module 01. Default locations:
+Follow the workspace layout in Module 01. When no document workspace exists, as with pasted text, save each retrieved source as its own file in the source directory and keep its provenance entry in a `sources.md` file beside it. Otherwise, use these default locations:
 
 - Controlling documents: `guidelines/source/`
 - Literature full texts: `references/papers/`
@@ -74,7 +74,7 @@ Every saved source file gets one ledger entry with these fields:
 - the requirement, claim, figure, or table it supports
 - conflicts or uncertainty
 
-Record entries in `guidelines/README.md` for controlling documents and in `results/README.md` for supplied results when an inventory is needed. Literature searches are documented by their search records, and cited works by the existing bibliography. Point the requirements matrix evidence column at the local path and the original URL. Keep these records separate from the brief project logs in `log/`.
+Record entries in `guidelines/README.md` for controlling documents, in `references/papers/README.md` for saved full texts, and in `results/README.md` for supplied results when an inventory is needed. Use the source inventory columns in `skill-modules/templates/guidelines_README.md` for the guidelines and papers ledgers. Literature searches are documented by their search records, and citation identity by the existing bibliography. Point the requirements matrix evidence column at the local path and the original URL. Keep these records separate from the brief project logs in `log/`.
 
 Checksum example:
 
@@ -88,7 +88,7 @@ When a page is likely to change and the local copy may not remain the version of
 
 ## 7. Access and redistribution
 
-Use the access the user already has, such as an institutional subscription or an open-access copy. Do not bypass paywalls, authentication, or rate limits. Saving a copy locally is retrieval for the user's own use. Do not commit it to a public repository, upload it to a third-party service, or share it outside the user's workspace. Do not save protected health information or other restricted data without permission; handle those records as described in Module 02.
+Use the access the user already has, such as an institutional subscription or an open-access copy. Do not bypass paywalls, authentication, or rate limits. Saving a copy locally is retrieval for the user's own use. Do not commit it to a public repository, upload it to a third-party service, or share it outside the user's workspace.
 
 ## 8. Git boundary
 

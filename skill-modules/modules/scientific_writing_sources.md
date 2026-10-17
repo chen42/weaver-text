@@ -51,4 +51,4 @@ Barbara Gastel and Robert A. Day. *How to Write and Publish a Scientific Paper*,
 
 ## Skill-specific policies
 
-Punctuation preferences, preservation of established acronyms during focused edits, approval before substantive changes or length cuts, and the two-page working-draft allowance are user and skill policies. They are not attributed to the writing sources above. Local retrieval does not authorize redistribution of copyrighted articles or books; the notes provide source records and paraphrases rather than redistributing their full text.
+Punctuation preferences, preservation of established acronyms during focused edits, approval before substantive changes or length cuts, and the project-specific working-draft tolerance for length limits are user and skill policies. They are not attributed to the writing sources above. Local retrieval does not authorize redistribution of copyrighted articles or books; the notes provide source records and paraphrases rather than redistributing their full text.

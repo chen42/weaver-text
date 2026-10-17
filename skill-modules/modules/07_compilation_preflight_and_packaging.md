@@ -43,7 +43,7 @@ For an existing LuaLaTeX project:
 latexmk -pdflua -interaction=nonstopmode -file-line-error -outdir=build drafts/main.tex
 ```
 
-Require a successful exit, inspect the log and rendered pages, and confirm the PDF belongs to the current build before copying it to `final/`. Do not release a stale PDF after a failed build. Verify bibliography and image paths under the actual working directory and output-directory configuration.
+For the agent's own edits, keep the pre-edit source and provide a `latexdiff` comparison, compiled to PDF when the build succeeds; otherwise provide a unified diff. Require a successful exit, inspect the log and rendered pages, and confirm the PDF belongs to the current build before copying it to `final/`. Do not release a stale PDF after a failed build. Verify bibliography and image paths under the actual working directory and output-directory configuration.
 
 ### Linux DOCX support
 
@@ -52,13 +52,13 @@ The optional [`docx` skill from `anthropics/skills`](https://github.com/anthropi
 1. If the `docx` skill is installed, read its `SKILL.md` and relevant linked instructions. Resolve its script paths relative to that skill, not this one. Check current dependencies and license terms before use; claims about preinstalled packages in the external skill do not establish availability locally.
 2. If it is not installed, ask before installation. If installation is unavailable or not approved, use LibreOffice ODT as the working format when the user permits conversion. Preserve the original DOCX. If DOCX must remain the source, use LibreOffice only with the user's approval and audit round-trip fidelity; otherwise report the dependency as Blocked.
 3. For a new DOCX, use the verified skill's generation workflow. For an existing DOCX, use its editing workflow or an approved LibreOffice workflow; do not regenerate the document through a Markdown round trip or a creation-only library.
-4. Preserve styles, numbering, fields, equations, citations, hyperlinks, headers, footers, section breaks, comments, and tracked changes. Do not accept or reject changes without authorization. Text extraction is an inspection aid, not a lossless editable source.
+4. Record the agent's own edits as tracked changes, using the skill's tracked-change workflow or LibreOffice's Record Changes, so the author can accept or reject each one. Preserve styles, numbering, fields, equations, citations, hyperlinks, headers, footers, section breaks, comments, and tracked changes. Do not accept or reject changes without authorization. Text extraction is an inspection aid, not a lossless editable source.
 5. Validate the DOCX using the available skill tools and render it with LibreOffice. Inspect the PDF page by page. Rendering in LibreOffice does not establish identical pagination in Microsoft Word; report that limitation when relevant to the submission.
 6. Deliver the editable DOCX and checked PDF when requested. An ODT or PDF substitute does not satisfy a mandatory DOCX requirement.
 
 ### LibreOffice ODT
 
-Use LibreOffice Writer with ODT as the fallback authoring format when a suitable DOCX workflow is unavailable and the user permits it. Preserve the supplied document and record any conversion. Use paragraph, character, table, and page styles rather than manual spacing to control layout. Verify the availability of any automation interface before relying on it.
+Use LibreOffice Writer with ODT as the fallback authoring format when a suitable DOCX workflow is unavailable and the user permits it. Preserve the supplied document and record any conversion. Use paragraph, character, table, and page styles rather than manual spacing to control layout. Record the agent's own edits with Record Changes. Verify the availability of any automation interface before relying on it.
 
 For either DOCX or ODT, this Linux example renders to a fresh output directory with an isolated LibreOffice profile. The commands assume the source file and dependencies exist; save them as a script when reproducible export is in scope:
 
@@ -104,7 +104,7 @@ Check the rendered deliverable against the current official instructions and `gu
 
 ### Layout and components
 
-- Count pages, words, and characters as applicable according to the target's definition, including which components and references count toward each limit. Check display-item caps where required. Report the counts and any overage. Do not cut text to reduce the count; when the document is more than two pages over, propose specific cuts and pruning options and wait for approval before packaging. Overages within the two-page allowance may proceed, with the overage stated in the delivery summary.
+- Count pages, words, and characters as applicable according to the target's definition, including which components and references count toward each limit. Check display-item caps where required. Report the counts and any overage. Do not cut text to reduce the count. Overages are allowed during drafting within the tolerance set for the project; state them in the delivery summary. Before packaging a submission-ready file, propose specific cuts and pruning options for any overage and wait for approval. A file over a mandatory limit is not submission-ready.
 - Distinguish separately uploaded attachments from sections in a single file. Apply page breaks only where required by the actual document structure.
 - Verify page size, margins, fonts, line spacing, headers, footers, and file-format requirements without assuming generic agency values.
 - Inspect every rendered page for clipping, overflow, overlapping captions, blank pages, incorrect numbering, and misplaced figures. If visual inspection is unavailable, mark it Not checked or Blocked.
